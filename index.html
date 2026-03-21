@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Basilia Azcona — Luxury Real Estate Agent in Central New Jersey. Buying, Selling, Luxury Rentals & Investment Properties. Bilingual English/Spanish." />
+  <meta name="keywords" content="real estate, New Jersey, Mercer County, luxury homes, Basilia Azcona, bilingual realtor" />
+  <title>Basilia Azcona | Luxury Real Estate · Central New Jersey</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-name">Basilia Azcona</span>
+        <span class="logo-tagline" data-en="Luxury Real Estate" data-es="Bienes Raíces de Lujo">Luxury Real Estate</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" data-en="About" data-es="Sobre Mí">About</a></li>
+        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+        <li><a href="#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
+        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+        <li>
+          <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+            <span class="lang-en active">EN</span>
+            <span class="lang-divider">|</span>
+            <span class="lang-es">ES</span>
+          </button>
+        </li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <ul>
+      <li><a href="#about" class="mobile-link" data-en="About" data-es="Sobre Mí">About</a></li>
+      <li><a href="#services" class="mobile-link" data-en="Services" data-es="Servicios">Services</a></li>
+      <li><a href="#testimonials" class="mobile-link" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
+      <li><a href="#contact" class="mobile-link" data-en="Contact" data-es="Contacto">Contact</a></li>
+    </ul>
+    <button class="lang-toggle mobile-lang" id="langToggleMobile">
+      <span class="lang-en active">EN</span>
+      <span class="lang-divider">|</span>
+      <span class="lang-es">ES</span>
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero-parallax" id="heroParallax">
+      <img src="images/rooftop.jpg" alt="Basilia Azcona — Luxury Real Estate" class="hero-bg-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal-up">
+        <span class="eyebrow-line"></span>
+        <span data-en="Central New Jersey · Mercer County" data-es="Centro de Nueva Jersey · Condado de Mercer">Central New Jersey · Mercer County</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="hero-title reveal-up delay-1">
+        <span class="hero-name">Basilia</span>
+        <span class="hero-name italic">Azcona</span>
+      </h1>
+      <p class="hero-subtitle reveal-up delay-2" data-en="Your trusted guide to luxury real estate in Central New Jersey." data-es="Su guía de confianza en bienes raíces de lujo en el Centro de Nueva Jersey.">
+        Your trusted guide to luxury real estate in Central New Jersey.
+      </p>
+      <div class="hero-cta reveal-up delay-3">
+        <a href="#contact" class="btn-primary" data-en="Begin Your Journey" data-es="Comience Su Viaje">Begin Your Journey</a>
+        <a href="#about" class="btn-ghost" data-en="Discover More" data-es="Descubra Más">Discover More</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span class="scroll-line"></span>
+      <span class="scroll-text" data-en="Scroll" data-es="Deslizar">Scroll</span>
+    </div>
+    <!-- Floating stats -->
+    <div class="hero-stats reveal-up delay-4">
+      <div class="stat-item">
+        <span class="stat-number">200<span class="stat-plus">+</span></span>
+        <span class="stat-label" data-en="Homes Sold" data-es="Casas Vendidas">Homes Sold</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">$50M<span class="stat-plus">+</span></span>
+        <span class="stat-label" data-en="In Transactions" data-es="En Transacciones">In Transactions</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">10<span class="stat-plus">+</span></span>
+        <span class="stat-label" data-en="Years Experience" data-es="Años de Experiencia">Years Experience</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MARQUEE TICKER
+  ═══════════════════════════════════════════ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span data-en="Luxury Homes" data-es="Casas de Lujo">Luxury Homes</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Investment Properties" data-es="Propiedades de Inversión">Investment Properties</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Luxury Rentals" data-es="Alquileres de Lujo">Luxury Rentals</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Bilingual Service" data-es="Servicio Bilingüe">Bilingual Service</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Central New Jersey" data-es="Centro de Nueva Jersey">Central New Jersey</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Mercer County Expert" data-es="Experta en Condado de Mercer">Mercer County Expert</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Luxury Homes" data-es="Casas de Lujo">Luxury Homes</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Investment Properties" data-es="Propiedades de Inversión">Investment Properties</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Luxury Rentals" data-es="Alquileres de Lujo">Luxury Rentals</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Bilingual Service" data-es="Servicio Bilingüe">Bilingual Service</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Central New Jersey" data-es="Centro de Nueva Jersey">Central New Jersey</span>
+        <span class="marquee-dot">◆</span>
+        <span data-en="Mercer County Expert" data-es="Experta en Condado de Mercer">Mercer County Expert</span>
+        <span class="marquee-dot">◆</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="about section-padding">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <div class="about-img-primary reveal-left">
+            <img src="images/headshot2.jpg" alt="Basilia Azcona — Real Estate Professional" />
+            <div class="img-accent-border"></div>
+          </div>
+          <div class="about-img-secondary reveal-left delay-1">
+            <img src="images/speaking.jpg" alt="Basilia Azcona — Industry Speaker" />
+            <div class="about-img-label">
+              <span data-en="Industry Leader" data-es="Líder de la Industria">Industry Leader</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="section-label reveal-up" data-en="About Basilia" data-es="Sobre Basilia">About Basilia</div>
+          <h2 class="section-title reveal-up delay-1">
+            <span data-en="Where Expertise" data-es="Donde la Experiencia">Where Expertise</span><br/>
+            <span class="italic pink-text" data-en="Meets Dedication" data-es="Se Une a la Dedicación">Meets Dedication</span>
+          </h2>
+          <div class="about-story reveal-up delay-2">
+            <p data-en="Basilia Azcona is a distinguished real estate professional serving the Central New Jersey market with an unwavering commitment to excellence. Rooted in Mercer County, she brings a deep understanding of the local landscape — from Princeton's storied neighborhoods to the vibrant communities of Hamilton, Trenton, and beyond." data-es="Basilia Azcona es una distinguida profesional de bienes raíces que sirve al mercado del Centro de Nueva Jersey con un compromiso inquebrantable con la excelencia. Arraigada en el Condado de Mercer, aporta un profundo conocimiento del panorama local, desde los históricos vecindarios de Princeton hasta las vibrantes comunidades de Hamilton, Trenton y más allá.">
+              Basilia Azcona is a distinguished real estate professional serving the Central New Jersey market with an unwavering commitment to excellence. Rooted in Mercer County, she brings a deep understanding of the local landscape — from Princeton's storied neighborhoods to the vibrant communities of Hamilton, Trenton, and beyond.
+            </p>
+            <p data-en="As a bilingual English/Spanish agent, Basilia bridges cultures and opens doors for a diverse clientele, ensuring every client feels heard, understood, and expertly guided through one of life's most significant decisions. Her approach is personal, strategic, and relentlessly client-focused." data-es="Como agente bilingüe inglés/español, Basilia une culturas y abre puertas para una clientela diversa, asegurando que cada cliente se sienta escuchado, comprendido y expertamente guiado a través de una de las decisiones más importantes de la vida. Su enfoque es personal, estratégico y enfocado implacablemente en el cliente.">
+              As a bilingual English/Spanish agent, Basilia bridges cultures and opens doors for a diverse clientele, ensuring every client feels heard, understood, and expertly guided through one of life's most significant decisions. Her approach is personal, strategic, and relentlessly client-focused.
+            </p>
+            <p data-en="With over a decade of experience and more than $50 million in closed transactions, Basilia has earned her reputation as one of Central New Jersey's most trusted and results-driven real estate professionals." data-es="Con más de una década de experiencia y más de $50 millones en transacciones cerradas, Basilia se ha ganado su reputación como una de las profesionales de bienes raíces más confiables y orientadas a resultados del Centro de Nueva Jersey.">
+              With over a decade of experience and more than $50 million in closed transactions, Basilia has earned her reputation as one of Central New Jersey's most trusted and results-driven real estate professionals.
+            </p>
+          </div>
+          <div class="about-badges reveal-up delay-3">
+            <div class="badge">
+              <span class="badge-icon">✦</span>
+              <span data-en="Licensed NJ Realtor" data-es="Agente Licenciada en NJ">Licensed NJ Realtor</span>
+            </div>
+            <div class="badge">
+              <span class="badge-icon">✦</span>
+              <span data-en="Bilingual EN/ES" data-es="Bilingüe EN/ES">Bilingual EN/ES</span>
+            </div>
+            <div class="badge">
+              <span class="badge-icon">✦</span>
+              <span data-en="Mercer County Specialist" data-es="Especialista en Mercer County">Mercer County Specialist</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn-primary reveal-up delay-4" data-en="Work With Basilia" data-es="Trabaje Con Basilia">Work With Basilia</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="services" class="services section-padding">
+    <div class="services-bg-texture"></div>
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label reveal-up" data-en="What I Offer" data-es="Lo Que Ofrezco">What I Offer</div>
+        <h2 class="section-title reveal-up delay-1">
+          <span data-en="Exceptional" data-es="Servicios">Exceptional</span>
+          <span class="italic pink-text" data-en=" Services" data-es=" Excepcionales"> Services</span>
+        </h2>
+        <p class="section-subtitle reveal-up delay-2" data-en="From your first home to your finest investment — I guide you every step of the way." data-es="Desde su primera casa hasta su mejor inversión — la guío en cada paso del camino.">
+          From your first home to your finest investment — I guide you every step of the way.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-up delay-1">
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 20L24 6L40 20V42H30V30H18V42H8V20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Home Buying" data-es="Compra de Vivienda">Home Buying</h3>
+          <p class="service-desc" data-en="Navigating the market with precision and care. I find you the perfect property, negotiate on your behalf, and ensure a seamless closing experience." data-es="Navegando el mercado con precisión y cuidado. Encuentro la propiedad perfecta para usted, negocio en su nombre y garantizo una experiencia de cierre sin problemas.">
+            Navigating the market with precision and care. I find you the perfect property, negotiate on your behalf, and ensure a seamless closing experience.
+          </p>
+          <div class="service-link">
+            <span data-en="Learn More" data-es="Saber Más">Learn More</span>
+            <span class="service-arrow">→</span>
+          </div>
+        </div>
+        <div class="service-card reveal-up delay-2">
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 36L18 24L26 32L36 20L42 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="14" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Home Selling" data-es="Venta de Vivienda">Home Selling</h3>
+          <p class="service-desc" data-en="Strategic pricing, stunning presentation, and aggressive marketing. I position your property to attract qualified buyers and command top dollar." data-es="Precios estratégicos, presentación impresionante y marketing agresivo. Posiciono su propiedad para atraer compradores calificados y obtener el máximo valor.">
+            Strategic pricing, stunning presentation, and aggressive marketing. I position your property to attract qualified buyers and command top dollar.
+          </p>
+          <div class="service-link">
+            <span data-en="Learn More" data-es="Saber Más">Learn More</span>
+            <span class="service-arrow">→</span>
+          </div>
+        </div>
+        <div class="service-card reveal-up delay-3">
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="14" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 14V10C16 7.79 17.79 6 20 6H28C30.21 6 32 7.79 32 10V14" stroke="currentColor" stroke-width="1.5"/><path d="M24 24V32M20 28H28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Luxury Rentals" data-es="Alquileres de Lujo">Luxury Rentals</h3>
+          <p class="service-desc" data-en="Access to Central New Jersey's finest rental properties. Whether you're relocating or seeking a premium lifestyle, I connect you with exceptional spaces." data-es="Acceso a las mejores propiedades de alquiler del Centro de Nueva Jersey. Ya sea que se esté mudando o buscando un estilo de vida premium, la conecto con espacios excepcionales.">
+            Access to Central New Jersey's finest rental properties. Whether you're relocating or seeking a premium lifestyle, I connect you with exceptional spaces.
+          </p>
+          <div class="service-link">
+            <span data-en="Learn More" data-es="Saber Más">Learn More</span>
+            <span class="service-arrow">→</span>
+          </div>
+        </div>
+        <div class="service-card reveal-up delay-4">
+          <div class="service-number">04</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4L44 16V44H4V16L24 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 44V28H32V44" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="24" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Investment Properties" data-es="Propiedades de Inversión">Investment Properties</h3>
+          <p class="service-desc" data-en="Build lasting wealth through smart real estate investment. I identify high-yield opportunities, analyze ROI, and guide you toward portfolio growth." data-es="Construya riqueza duradera a través de inversiones inteligentes en bienes raíces. Identifico oportunidades de alto rendimiento, analizo el ROI y la guío hacia el crecimiento de su cartera.">
+            Build lasting wealth through smart real estate investment. I identify high-yield opportunities, analyze ROI, and guide you toward portfolio growth.
+          </p>
+          <div class="service-link">
+            <span data-en="Learn More" data-es="Saber Más">Learn More</span>
+            <span class="service-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CINEMATIC INTERLUDE — SPEAKING PHOTO
+  ═══════════════════════════════════════════ -->
+  <section class="interlude">
+    <div class="interlude-parallax" id="interludeParallax">
+      <img src="images/speaking.jpg" alt="Basilia Azcona speaking" class="interlude-bg" />
+      <div class="interlude-overlay"></div>
+    </div>
+    <div class="interlude-content">
+      <blockquote class="interlude-quote reveal-up">
+        <span class="quote-mark">"</span>
+        <p data-en="Real estate is not just about property — it's about people, dreams, and the places we call home." data-es="Los bienes raíces no son solo propiedades — son personas, sueños y los lugares que llamamos hogar.">
+          Real estate is not just about property — it's about people, dreams, and the places we call home.
+        </p>
+        <cite data-en="— Basilia Azcona" data-es="— Basilia Azcona">— Basilia Azcona</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="testimonials" class="testimonials section-padding">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label reveal-up" data-en="Client Stories" data-es="Historias de Clientes">Client Stories</div>
+        <h2 class="section-title reveal-up delay-1">
+          <span data-en="What Clients" data-es="Lo Que Dicen">What Clients</span>
+          <span class="italic pink-text" data-en=" Are Saying" data-es=" los Clientes"> Are Saying</span>
+        </h2>
+      </div>
+      <div class="testimonials-slider" id="testimonialsSlider">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" data-en="Basilia made our home-buying journey feel effortless. Her knowledge of Mercer County is unmatched, and her bilingual support was invaluable for our family. We found our dream home in just three weeks." data-es="Basilia hizo que nuestro proceso de compra de vivienda se sintiera sin esfuerzo. Su conocimiento del Condado de Mercer no tiene igual, y su apoyo bilingüe fue invaluable para nuestra familia. Encontramos la casa de nuestros sueños en solo tres semanas.">
+              Basilia made our home-buying journey feel effortless. Her knowledge of Mercer County is unmatched, and her bilingual support was invaluable for our family. We found our dream home in just three weeks.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">M</div>
+              <div class="author-info">
+                <span class="author-name">Maria &amp; Carlos R.</span>
+                <span class="author-detail" data-en="First-Time Homebuyers · Princeton, NJ" data-es="Compradores Primerizos · Princeton, NJ">First-Time Homebuyers · Princeton, NJ</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" data-en="I listed my home with Basilia and received three offers above asking price within 48 hours. Her marketing strategy and staging advice were exceptional. She truly knows how to position a property." data-es="Listé mi casa con Basilia y recibí tres ofertas por encima del precio pedido en 48 horas. Su estrategia de marketing y consejos de presentación fueron excepcionales. Realmente sabe cómo posicionar una propiedad.">
+              I listed my home with Basilia and received three offers above asking price within 48 hours. Her marketing strategy and staging advice were exceptional. She truly knows how to position a property.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">J</div>
+              <div class="author-info">
+                <span class="author-name">James T.</span>
+                <span class="author-detail" data-en="Home Seller · Hamilton, NJ" data-es="Vendedor de Vivienda · Hamilton, NJ">Home Seller · Hamilton, NJ</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" data-en="As an investor, I need an agent who understands numbers and market trends. Basilia delivered both. She helped me acquire two investment properties that are already generating strong returns. Highly recommend." data-es="Como inversor, necesito un agente que entienda los números y las tendencias del mercado. Basilia entregó ambos. Me ayudó a adquirir dos propiedades de inversión que ya están generando fuertes retornos. Muy recomendada.">
+              As an investor, I need an agent who understands numbers and market trends. Basilia delivered both. She helped me acquire two investment properties that are already generating strong returns. Highly recommend.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">D</div>
+              <div class="author-info">
+                <span class="author-name">David K.</span>
+                <span class="author-detail" data-en="Real Estate Investor · Mercer County" data-es="Inversor Inmobiliario · Condado de Mercer">Real Estate Investor · Mercer County</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" data-en="Relocating from out of state was daunting, but Basilia made it seamless. She understood exactly what we needed, communicated in Spanish which made everything so much easier, and found us a luxury rental that felt like home from day one." data-es="Mudarse desde otro estado era intimidante, pero Basilia lo hizo sin problemas. Entendió exactamente lo que necesitábamos, se comunicó en español lo que facilitó todo, y nos encontró un alquiler de lujo que se sintió como hogar desde el primer día.">
+              Relocating from out of state was daunting, but Basilia made it seamless. She understood exactly what we needed, communicated in Spanish which made everything so much easier, and found us a luxury rental that felt like home from day one.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">S</div>
+              <div class="author-info">
+                <span class="author-name">Sofia &amp; Miguel L.</span>
+                <span class="author-detail" data-en="Luxury Rental · Trenton, NJ" data-es="Alquiler de Lujo · Trenton, NJ">Luxury Rental · Trenton, NJ</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" data-en="Basilia is in a class of her own. Professional, warm, and incredibly knowledgeable. She negotiated $30,000 below asking on our purchase and handled every detail with grace. We will never use another agent." data-es="Basilia está en una clase propia. Profesional, cálida e increíblemente conocedora. Negoció $30,000 por debajo del precio pedido en nuestra compra y manejó cada detalle con elegancia. Nunca usaremos otro agente.">
+              Basilia is in a class of her own. Professional, warm, and incredibly knowledgeable. She negotiated $30,000 below asking on our purchase and handled every detail with grace. We will never use another agent.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">A</div>
+              <div class="author-info">
+                <span class="author-name">Amanda &amp; Robert P.</span>
+                <span class="author-detail" data-en="Homebuyers · Princeton Junction, NJ" data-es="Compradores de Vivienda · Princeton Junction, NJ">Homebuyers · Princeton Junction, NJ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn prev" id="sliderPrev" aria-label="Previous">←</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="slider-btn next" id="sliderNext" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="contact section-padding">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-label reveal-up" data-en="Get In Touch" data-es="Póngase en Contacto">Get In Touch</div>
+          <h2 class="section-title reveal-up delay-1">
+            <span data-en="Let's Start" data-es="Comencemos">Let's Start</span><br/>
+            <span class="italic pink-text" data-en="Your Story" data-es="Su Historia">Your Story</span>
+          </h2>
+          <p class="contact-intro reveal-up delay-2" data-en="Whether you're buying, selling, or investing — your next chapter begins with a conversation. Reach out today and let's make it happen." data-es="Ya sea que esté comprando, vendiendo o invirtiendo — su próximo capítulo comienza con una conversación. Comuníquese hoy y hagámoslo realidad.">
+            Whether you're buying, selling, or investing — your next chapter begins with a conversation. Reach out today and let's make it happen.
+          </p>
+          <div class="contact-details reveal-up delay-3">
+            <a href="tel:6096382850" class="contact-item">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </span>
+              <span>609-638-2850</span>
+            </a>
+            <a href="mailto:basilia@realestatewithbasilia.com" class="contact-item">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5"/></svg>
+              </span>
+              <span>basilia@realestatewithbasilia.com</span>
+            </a>
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </span>
+              <span data-en="Mercer County, Central New Jersey" data-es="Condado de Mercer, Centro de Nueva Jersey">Mercer County, Central New Jersey</span>
+            </div>
+            <a href="https://realestatewithbasilia.com" class="contact-item" target="_blank" rel="noopener">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M2 12H22M12 2C9.33 4.89 8 8.36 8 12C8 15.64 9.33 19.11 12 22C14.67 19.11 16 15.64 16 12C16 8.36 14.67 4.89 12 2Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </span>
+              <span>realestatewithbasilia.com</span>
+            </a>
+          </div>
+          <div class="contact-headshot reveal-up delay-4">
+            <img src="images/headshot1.jpg" alt="Basilia Azcona" />
+            <div class="headshot-caption">
+              <span class="headshot-name">Basilia Azcona</span>
+              <span class="headshot-title" data-en="Licensed Real Estate Professional" data-es="Profesional Licenciada en Bienes Raíces">Licensed Real Estate Professional</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper reveal-right">
+          <form id="contactForm" action="https://formspree.io/f/mwvrjlbk" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name" data-placeholder-en="Your full name" data-placeholder-es="Su nombre completo" />
+            </div>
+            <div class="form-group">
+              <label for="email" data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="service" data-en="I'm Interested In" data-es="Estoy Interesado/a En">I'm Interested In</label>
+              <select id="service" name="service">
+                <option value="" data-en="Select a service..." data-es="Seleccione un servicio...">Select a service...</option>
+                <option value="buying" data-en="Buying a Home" data-es="Comprar una Casa">Buying a Home</option>
+                <option value="selling" data-en="Selling a Home" data-es="Vender una Casa">Selling a Home</option>
+                <option value="rental" data-en="Luxury Rental" data-es="Alquiler de Lujo">Luxury Rental</option>
+                <option value="investment" data-en="Investment Property" data-es="Propiedad de Inversión">Investment Property</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" data-en="Message" data-es="Mensaje">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me about your real estate goals..." data-placeholder-en="Tell me about your real estate goals..." data-placeholder-es="Cuénteme sobre sus metas en bienes raíces..."></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New Inquiry from realestatewithbasilia.com" />
+            <button type="submit" class="btn-primary btn-full" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+            <div id="formSuccess" class="form-success hidden">
+              <span data-en="✓ Message sent! I'll be in touch within 24 hours." data-es="✓ ¡Mensaje enviado! Me comunicaré en 24 horas.">✓ Message sent! I'll be in touch within 24 hours.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-name">Basilia Azcona</span>
+        <span class="logo-tagline" data-en="Luxury Real Estate · Central New Jersey" data-es="Bienes Raíces de Lujo · Centro de Nueva Jersey">Luxury Real Estate · Central New Jersey</span>
+      </div>
+      <div class="footer-links">
+        <a href="#about" data-en="About" data-es="Sobre Mí">About</a>
+        <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+        <a href="#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+        <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:6096382850">609-638-2850</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:basilia@realestatewithbasilia.com">basilia@realestatewithbasilia.com</a>
+      </div>
+      <p class="footer-copy" data-en="© 2025 Basilia Azcona. All rights reserved. Licensed Real Estate Professional · New Jersey." data-es="© 2025 Basilia Azcona. Todos los derechos reservados. Profesional Licenciada en Bienes Raíces · Nueva Jersey.">
+        © 2025 Basilia Azcona. All rights reserved. Licensed Real Estate Professional · New Jersey.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       CHATBOT
+  ═══════════════════════════════════════════ -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat">
+      <svg class="chat-icon-open" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <svg class="chat-icon-close hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="chatbot-badge" id="chatbotBadge">1</span>
+    </button>
+    <div class="chatbot-window hidden" id="chatbotWindow">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <img src="images/headshot1.jpg" alt="Basilia" />
+        </div>
+        <div class="chatbot-header-info">
+          <span class="chatbot-name">Basilia Azcona</span>
+          <span class="chatbot-status" data-en="● Online · Real Estate Assistant" data-es="● En Línea · Asistente de Bienes Raíces">● Online · Real Estate Assistant</span>
+        </div>
+        <button class="chatbot-lang-btn" id="chatbotLang">ES</button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chat-msg bot">
+          <p class="msg-text" data-en="Hello! I'm Basilia's virtual assistant. I'm here to answer your real estate questions about Central New Jersey. How can I help you today?" data-es="¡Hola! Soy el asistente virtual de Basilia. Estoy aquí para responder sus preguntas sobre bienes raíces en el Centro de Nueva Jersey. ¿Cómo puedo ayudarle hoy?">
+            Hello! I'm Basilia's virtual assistant. I'm here to answer your real estate questions about Central New Jersey. How can I help you today?
+          </p>
+          <span class="msg-time">Now</span>
+        </div>
+      </div>
+      <div class="chatbot-suggestions" id="chatbotSuggestions">
+        <button class="suggestion-btn" data-en="How do I start buying a home?" data-es="¿Cómo empiezo a comprar una casa?">How do I start buying a home?</button>
+        <button class="suggestion-btn" data-en="What areas do you serve?" data-es="¿Qué áreas atiende?">What areas do you serve?</button>
+        <button class="suggestion-btn" data-en="How do I sell my home fast?" data-es="¿Cómo vendo mi casa rápido?">How do I sell my home fast?</button>
+      </div>
+      <div class="chatbot-input-area">
+        <input type="text" id="chatbotInput" placeholder="Ask a question..." data-placeholder-en="Ask a question..." data-placeholder-es="Haga una pregunta..." />
+        <button id="chatbotSend" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
