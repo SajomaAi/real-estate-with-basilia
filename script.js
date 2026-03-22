@@ -5,6 +5,9 @@
 
 'use strict';
 
+/* ── CONSTANTS ──────────────────────────────────────────────── */
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xreyvyvk';
+
 /* ── STATE ──────────────────────────────────────────────────── */
 let currentLang = 'en';
 let chatLang = 'en';
@@ -148,15 +151,12 @@ function initTestimonialsSlider() {
 
   if (!track) return;
 
-  // Determine how many slides are visible
   let slidesVisible = window.innerWidth > 900 ? 3 : 1;
   let maxSlide = totalSlides - slidesVisible;
   currentSlide = 0;
 
-  // Create dots
   function createDots() {
     dotsContainer.innerHTML = '';
-    const dotCount = maxSlide + 1;
     for (let i = 0; i <= maxSlide; i++) {
       const dot = document.createElement('button');
       dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
@@ -175,7 +175,6 @@ function initTestimonialsSlider() {
     const offset = currentSlide * (cardWidth + gap);
     track.style.transform = `translateX(-${offset}px)`;
 
-    // Update dots
     const dots = dotsContainer.querySelectorAll('.slider-dot');
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === currentSlide);
@@ -192,7 +191,6 @@ function initTestimonialsSlider() {
   prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
   nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
 
-  // Touch/swipe support
   let touchStartX = 0;
   track.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
@@ -206,7 +204,6 @@ function initTestimonialsSlider() {
     }
   }, { passive: true });
 
-  // Auto-advance
   let autoSlide = setInterval(() => {
     slidesVisible = window.innerWidth > 900 ? 3 : 1;
     maxSlide = totalSlides - slidesVisible;
@@ -214,7 +211,6 @@ function initTestimonialsSlider() {
     else goToSlide(currentSlide + 1);
   }, 5000);
 
-  // Pause on hover
   track.addEventListener('mouseenter', () => clearInterval(autoSlide));
   track.addEventListener('mouseleave', () => {
     autoSlide = setInterval(() => {
@@ -250,7 +246,6 @@ function initLanguageToggle() {
     toggle.addEventListener('click', () => {
       currentLang = currentLang === 'en' ? 'es' : 'en';
       applyLanguage(currentLang);
-      // Sync chatbot lang
       chatLang = currentLang;
       updateChatbotLang();
     });
@@ -260,42 +255,35 @@ function initLanguageToggle() {
 function applyLanguage(lang) {
   currentLang = lang;
 
-  // Update all data-en / data-es elements
   const allEls = document.querySelectorAll('[data-en]');
   allEls.forEach(el => {
     const text = el.getAttribute(`data-${lang}`);
     if (text) {
-      // Don't overwrite elements that are containers (have children)
       if (el.children.length === 0) {
         el.textContent = text;
       }
     }
   });
 
-  // Update placeholders
   const placeholderEls = document.querySelectorAll('[data-placeholder-en]');
   placeholderEls.forEach(el => {
     const ph = el.getAttribute(`data-placeholder-${lang}`);
     if (ph) el.setAttribute('placeholder', ph);
   });
 
-  // Update select options
   const selectOptions = document.querySelectorAll('select option[data-en]');
   selectOptions.forEach(opt => {
     const text = opt.getAttribute(`data-${lang}`);
     if (text) opt.textContent = text;
   });
 
-  // Update lang toggle buttons
   const enSpans = document.querySelectorAll('.lang-en');
   const esSpans = document.querySelectorAll('.lang-es');
   enSpans.forEach(s => s.classList.toggle('active', lang === 'en'));
   esSpans.forEach(s => s.classList.toggle('active', lang === 'es'));
 
-  // Update chatbot suggestions
   updateSuggestionButtons(lang);
 
-  // Update html lang attribute
   document.documentElement.lang = lang === 'es' ? 'es' : 'en';
 }
 
@@ -308,13 +296,16 @@ function updateSuggestionButtons(lang) {
 }
 
 /* ═══════════════════════════════════════════
-   CONTACT FORM
+   CONTACT FORM — Formspree
 ═══════════════════════════════════════════ */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
 
   if (!form) return;
+
+  // Ensure the action points to the correct endpoint
+  form.action = FORMSPREE_ENDPOINT;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -326,7 +317,7 @@ function initContactForm() {
 
     try {
       const formData = new FormData(form);
-      const response = await fetch(form.action, {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         body: formData,
         headers: { 'Accept': 'application/json' }
@@ -355,6 +346,7 @@ function initContactForm() {
 
 /* ═══════════════════════════════════════════
    CHATBOT — Self-contained Real Estate AI
+   Floating fixed widget · Inline appt form
 ═══════════════════════════════════════════ */
 
 const chatbotKnowledge = {
@@ -365,7 +357,7 @@ const chatbotKnowledge = {
     rental: ['rent', 'rental', 'lease', 'apartment', 'luxury rental', 'relocating'],
     investment: ['invest', 'investment', 'roi', 'portfolio', 'income property', 'multi-family', 'cap rate', 'cash flow'],
     areas: ['area', 'location', 'where', 'mercer', 'princeton', 'hamilton', 'trenton', 'new jersey', 'nj', 'serve'],
-    contact: ['contact', 'reach', 'call', 'email', 'phone', 'appointment', 'meeting', 'schedule'],
+    contact: ['contact', 'reach', 'call', 'email', 'phone', 'appointment', 'meeting', 'schedule', 'book', 'consult', 'more info', 'information'],
     bilingual: ['spanish', 'español', 'habla', 'bilingue', 'bilingual', 'language'],
     process: ['process', 'steps', 'how long', 'timeline', 'how does it work'],
     cost: ['cost', 'fee', 'commission', 'price', 'how much', 'charge'],
@@ -377,7 +369,7 @@ const chatbotKnowledge = {
     rental: ['alquilar', 'alquiler', 'renta', 'arrendar', 'apartamento', 'mudarse'],
     investment: ['invertir', 'inversión', 'roi', 'portafolio', 'propiedad de inversión', 'flujo de caja'],
     areas: ['área', 'ubicación', 'dónde', 'mercer', 'princeton', 'hamilton', 'trenton', 'nueva jersey', 'nj'],
-    contact: ['contactar', 'llamar', 'correo', 'teléfono', 'cita', 'reunión', 'agendar'],
+    contact: ['contactar', 'llamar', 'correo', 'teléfono', 'cita', 'reunión', 'agendar', 'consulta', 'más información', 'información'],
     bilingual: ['español', 'inglés', 'bilingüe', 'idioma', 'habla español'],
     process: ['proceso', 'pasos', 'cuánto tiempo', 'cronograma', 'cómo funciona'],
     cost: ['costo', 'precio', 'comisión', 'honorarios', 'cuánto cobra'],
@@ -392,11 +384,11 @@ const chatbotResponses = {
     rental: "Basilia has access to Central New Jersey's finest luxury rental properties. Whether you're relocating for work or seeking an elevated lifestyle, she'll match you with the perfect space.\n\nAreas served include Princeton, Hamilton, Trenton, and surrounding Mercer County communities. Shall I connect you with Basilia directly?",
     investment: "Smart real estate investment starts with the right advisor. Basilia specializes in:\n\n✦ Identifying high-yield opportunities in Mercer County\n✦ Analyzing cap rates and cash flow projections\n✦ Multi-family and income-producing properties\n✦ Portfolio growth strategies\n\nReady to build lasting wealth through real estate? Let's talk.",
     areas: "Basilia serves all of Central New Jersey with a specialty in Mercer County, including:\n\n✦ Princeton & Princeton Junction\n✦ Hamilton Township\n✦ Trenton\n✦ Lawrence Township\n✦ Ewing Township\n✦ West Windsor\n✦ Robbinsville\n\nAnd surrounding communities. Is there a specific area you're interested in?",
-    contact: "You can reach Basilia directly:\n\n📞 609-638-2850\n✉️ basilia@realestatewithbasilia.com\n🌐 realestatewithbasilia.com\n\nOr use the contact form on this page to send a message. She responds within 24 hours!",
+    contact: "I'd love to connect you with Basilia! Please fill out the quick form below and she'll be in touch within 24 hours.",
     bilingual: "¡Sí! Basilia is fully bilingual in English and Spanish. She provides complete real estate services in both languages, ensuring every client feels completely comfortable and understood throughout the entire process. ¡Estamos aquí para ayudarle!",
     process: "The real estate process with Basilia is designed to be smooth and stress-free:\n\n🏠 Buying: Consultation → Pre-approval → Search → Offer → Closing (typically 30-60 days)\n\n🏡 Selling: Consultation → Pricing → Prep & Staging → List → Negotiate → Close (typically 30-90 days)\n\nBasilia handles every detail so you can focus on what matters most.",
     cost: "Basilia's services are commission-based, which means:\n\n✦ Buyers: Typically no out-of-pocket cost to you\n✦ Sellers: Standard commission applies (competitive rates)\n✦ Rentals: Varies by arrangement\n\nFor a transparent conversation about costs, schedule a free consultation with Basilia — no obligation!",
-    default: "That's a great question! For the most accurate and personalized answer, I'd recommend speaking directly with Basilia. She can be reached at 609-638-2850 or via the contact form on this page. Is there anything else I can help you with?"
+    default: "That's a great question! For the most accurate and personalized answer, I'd recommend speaking directly with Basilia. Would you like to leave your contact info and she'll reach out within 24 hours?"
   },
   es: {
     greeting: "¡Hola! Soy el asistente virtual de Basilia. Puedo ayudarle con preguntas sobre comprar, vender, alquilar o invertir en bienes raíces en el Centro de Nueva Jersey. ¿En qué le puedo ayudar?",
@@ -405,11 +397,11 @@ const chatbotResponses = {
     rental: "Basilia tiene acceso a las mejores propiedades de alquiler de lujo en el Centro de Nueva Jersey. Ya sea que se esté mudando por trabajo o buscando un estilo de vida elevado, ella le encontrará el espacio perfecto.\n\n¿Le conecto directamente con Basilia?",
     investment: "La inversión inteligente en bienes raíces comienza con el asesor correcto. Basilia se especializa en:\n\n✦ Identificar oportunidades de alto rendimiento en el Condado de Mercer\n✦ Analizar tasas de capitalización y proyecciones de flujo de caja\n✦ Propiedades multifamiliares y generadoras de ingresos\n✦ Estrategias de crecimiento de portafolio\n\n¿Listo/a para construir riqueza duradera?",
     areas: "Basilia sirve todo el Centro de Nueva Jersey con especialidad en el Condado de Mercer, incluyendo:\n\n✦ Princeton y Princeton Junction\n✦ Hamilton Township\n✦ Trenton\n✦ Lawrence Township\n✦ Ewing Township\n✦ West Windsor\n✦ Robbinsville\n\n¿Hay alguna área específica que le interese?",
-    contact: "Puede comunicarse con Basilia directamente:\n\n📞 609-638-2850\n✉️ basilia@realestatewithbasilia.com\n🌐 realestatewithbasilia.com\n\nO use el formulario de contacto en esta página. ¡Ella responde en 24 horas!",
+    contact: "¡Me encantaría conectarle con Basilia! Por favor complete el formulario rápido a continuación y ella se comunicará en 24 horas.",
     bilingual: "¡Por supuesto! Basilia es completamente bilingüe en inglés y español. Ofrece todos sus servicios de bienes raíces en ambos idiomas, asegurando que cada cliente se sienta completamente cómodo y comprendido durante todo el proceso.",
     process: "El proceso de bienes raíces con Basilia está diseñado para ser fluido y sin estrés:\n\n🏠 Compra: Consulta → Preaprobación → Búsqueda → Oferta → Cierre (típicamente 30-60 días)\n\n🏡 Venta: Consulta → Precio → Preparación → Listar → Negociar → Cerrar (típicamente 30-90 días)\n\nBasilia maneja cada detalle para que usted pueda enfocarse en lo que más importa.",
     cost: "Los servicios de Basilia son basados en comisión, lo que significa:\n\n✦ Compradores: Típicamente sin costo de bolsillo para usted\n✦ Vendedores: Comisión estándar (tarifas competitivas)\n✦ Alquileres: Varía según el acuerdo\n\n¡Para una conversación transparente sobre costos, programe una consulta gratuita con Basilia!",
-    default: "¡Excelente pregunta! Para la respuesta más precisa y personalizada, le recomiendo hablar directamente con Basilia. Puede contactarla al 609-638-2850 o a través del formulario de contacto en esta página. ¿Hay algo más en que pueda ayudarle?"
+    default: "¡Excelente pregunta! Para la respuesta más precisa y personalizada, le recomiendo hablar directamente con Basilia. ¿Le gustaría dejar su información de contacto para que ella se comunique en 24 horas?"
   }
 };
 
@@ -433,7 +425,7 @@ function detectIntent(message, lang) {
 function getBotResponse(message) {
   const intent = detectIntent(message, chatLang);
   const responses = chatbotResponses[chatLang] || chatbotResponses.en;
-  return responses[intent] || responses.default;
+  return { text: responses[intent] || responses.default, intent };
 }
 
 function addMessage(text, isUser = false) {
@@ -451,6 +443,7 @@ function addMessage(text, isUser = false) {
 
   messages.appendChild(msg);
   messages.scrollTop = messages.scrollHeight;
+  return msg;
 }
 
 function showTypingIndicator() {
@@ -474,6 +467,84 @@ function removeTypingIndicator() {
   if (typing) typing.remove();
 }
 
+/* ── INLINE APPOINTMENT FORM inside chat ─────────────────── */
+function showChatAppointmentForm() {
+  const messages = document.getElementById('chatbotMessages');
+
+  const isEs = chatLang === 'es';
+  const formId = 'chatApptForm_' + Date.now();
+
+  const formMsg = document.createElement('div');
+  formMsg.className = 'chat-msg bot chat-form-msg';
+  formMsg.innerHTML = `
+    <form id="${formId}" class="chat-appt-form" novalidate>
+      <div class="chat-form-field">
+        <input type="text" name="name" placeholder="${isEs ? 'Su nombre completo' : 'Your full name'}" required />
+      </div>
+      <div class="chat-form-field">
+        <input type="tel" name="phone" placeholder="${isEs ? 'Su teléfono' : 'Your phone number'}" required />
+      </div>
+      <div class="chat-form-field">
+        <input type="email" name="email" placeholder="${isEs ? 'Su correo electrónico' : 'Your email address'}" required />
+      </div>
+      <div class="chat-form-field">
+        <textarea name="message" rows="2" placeholder="${isEs ? 'Cuénteme sobre sus metas...' : 'Tell me about your goals...'}"></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Chat Appointment Request — realestatewithbasilia.com" />
+      <input type="hidden" name="source" value="Chatbot Widget" />
+      <button type="submit" class="chat-form-submit">
+        ${isEs ? 'Enviar Solicitud' : 'Send Request'}
+      </button>
+      <p class="chat-form-note">${isEs ? '🔒 Su información es privada y segura.' : '🔒 Your info is private and secure.'}</p>
+    </form>
+  `;
+
+  messages.appendChild(formMsg);
+  messages.scrollTop = messages.scrollHeight;
+
+  // Handle form submission
+  const form = document.getElementById(formId);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('.chat-form-submit');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = isEs ? 'Enviando...' : 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Replace form with success message
+        formMsg.innerHTML = `
+          <div class="chat-form-success">
+            <span class="chat-form-check">✓</span>
+            <p>${isEs
+              ? '¡Gracias! Basilia se comunicará con usted en las próximas 24 horas.'
+              : 'Thank you! Basilia will be in touch within 24 hours.'
+            }</p>
+          </div>
+        `;
+        messages.scrollTop = messages.scrollHeight;
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      submitBtn.textContent = isEs ? 'Error. Intente de nuevo.' : 'Error. Try again.';
+      setTimeout(() => {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+      }, 3000);
+    }
+  });
+}
+
 function handleChatInput(input) {
   const text = input.trim();
   if (!text) return;
@@ -488,8 +559,15 @@ function handleChatInput(input) {
 
   setTimeout(() => {
     removeTypingIndicator();
-    const response = getBotResponse(text);
-    addMessage(response, false);
+    const { text: responseText, intent } = getBotResponse(text);
+    addMessage(responseText, false);
+
+    // If intent is contact or default, show the appointment form
+    if (intent === 'contact' || intent === 'default') {
+      setTimeout(() => {
+        showChatAppointmentForm();
+      }, 400);
+    }
   }, 800 + Math.random() * 600);
 }
 
@@ -499,17 +577,14 @@ function updateChatbotLang() {
     chatbotLangBtn.textContent = chatLang === 'en' ? 'ES' : 'EN';
   }
 
-  // Update suggestion buttons
   updateSuggestionButtons(chatLang);
 
-  // Update chatbot status
   const statusEl = document.querySelector('.chatbot-status');
   if (statusEl) {
     const text = statusEl.getAttribute(`data-${chatLang}`);
     if (text) statusEl.textContent = text;
   }
 
-  // Update input placeholder
   const input = document.getElementById('chatbotInput');
   if (input) {
     const ph = input.getAttribute(`data-placeholder-${chatLang}`);
@@ -519,7 +594,7 @@ function updateChatbotLang() {
 
 function initChatbot() {
   const toggle = document.getElementById('chatbotToggle');
-  const window_ = document.getElementById('chatbotWindow');
+  const chatWindow = document.getElementById('chatbotWindow');
   const badge = document.getElementById('chatbotBadge');
   const openIcon = toggle.querySelector('.chat-icon-open');
   const closeIcon = toggle.querySelector('.chat-icon-close');
@@ -530,15 +605,24 @@ function initChatbot() {
 
   let isOpen = false;
 
+  // Ensure the chatbot container is always fixed to bottom-right
+  const container = document.getElementById('chatbotContainer');
+  if (container) {
+    container.style.position = 'fixed';
+    container.style.bottom = '32px';
+    container.style.right = '32px';
+    container.style.zIndex = '9999';
+  }
+
   toggle.addEventListener('click', () => {
     isOpen = !isOpen;
-    window_.classList.toggle('hidden', !isOpen);
+    chatWindow.classList.toggle('hidden', !isOpen);
     openIcon.classList.toggle('hidden', isOpen);
     closeIcon.classList.toggle('hidden', !isOpen);
     badge.classList.add('hidden');
 
     if (isOpen) {
-      input.focus();
+      setTimeout(() => input.focus(), 100);
     }
   });
 
@@ -554,7 +638,6 @@ function initChatbot() {
     }
   });
 
-  // Suggestion buttons
   suggestions.addEventListener('click', (e) => {
     if (e.target.classList.contains('suggestion-btn')) {
       const text = e.target.textContent;
@@ -562,22 +645,31 @@ function initChatbot() {
     }
   });
 
-  // Chatbot language toggle (independent from main toggle)
   langBtn.addEventListener('click', () => {
     chatLang = chatLang === 'en' ? 'es' : 'en';
     langBtn.textContent = chatLang === 'en' ? 'ES' : 'EN';
     updateSuggestionButtons(chatLang);
 
-    // Add language switch message
     const switchMsg = chatLang === 'es'
       ? '¡Hola! Ahora estoy respondiendo en español. ¿En qué le puedo ayudar?'
       : 'Hello! Now responding in English. How can I help you?';
     addMessage(switchMsg, false);
 
-    // Update input placeholder
     const ph = input.getAttribute(`data-placeholder-${chatLang}`);
     if (ph) input.placeholder = ph;
   });
+
+  // Auto-open with a greeting after 8 seconds on first visit
+  const hasVisited = sessionStorage.getItem('chatGreeted');
+  if (!hasVisited) {
+    setTimeout(() => {
+      if (!isOpen) {
+        badge.style.display = 'flex';
+        badge.textContent = '1';
+      }
+    }, 8000);
+    sessionStorage.setItem('chatGreeted', 'true');
+  }
 }
 
 /* ═══════════════════════════════════════════
@@ -656,7 +748,6 @@ function animateCounter(el, target, suffix = '') {
   }, 16);
 }
 
-// Observe stats section
 const statsSection = document.querySelector('.hero-stats');
 if (statsSection) {
   const statNumbers = statsSection.querySelectorAll('.stat-number');
@@ -665,7 +756,6 @@ if (statsSection) {
   const statsObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !animated) {
       animated = true;
-      // Stats are in hero, animate on load
     }
   });
 
@@ -675,5 +765,4 @@ if (statsSection) {
 /* ═══════════════════════════════════════════
    INITIAL LANGUAGE SETUP
 ═══════════════════════════════════════════ */
-// Apply default EN language on load
 applyLanguage('en');

@@ -1960,3 +1960,119 @@ ul {
     transition: opacity 0.3s;
   }
 }
+
+/* ═══════════════════════════════════════════
+   CHATBOT INLINE APPOINTMENT FORM
+═══════════════════════════════════════════ */
+
+/* Ensure the chatbot is always fixed floating regardless of page context */
+#chatbotContainer {
+  position: fixed !important;
+  bottom: 32px !important;
+  right: 32px !important;
+  z-index: 9999 !important;
+}
+
+.chat-form-msg {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+.chat-appt-form {
+  background: var(--dark-3);
+  border-left: 2px solid var(--pink);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.chat-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-appt-form input,
+.chat-appt-form textarea {
+  background: var(--dark-4);
+  border: 1px solid var(--dark-5);
+  border-radius: 0;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.25s;
+  width: 100%;
+  resize: none;
+}
+
+.chat-appt-form input::placeholder,
+.chat-appt-form textarea::placeholder {
+  color: var(--mid);
+}
+
+.chat-appt-form input:focus,
+.chat-appt-form textarea:focus {
+  border-color: var(--pink-border);
+}
+
+.chat-form-submit {
+  background: var(--pink);
+  color: var(--black);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  align-self: flex-start;
+}
+
+.chat-form-submit:hover {
+  background: var(--pink-light);
+  transform: translateY(-1px);
+}
+
+.chat-form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chat-form-note {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  color: var(--mid);
+  margin-top: -4px;
+}
+
+.chat-form-success {
+  background: var(--dark-3);
+  border-left: 2px solid var(--pink);
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.chat-form-check {
+  color: var(--pink);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.chat-form-success p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--light-muted);
+  line-height: 1.5;
+}
