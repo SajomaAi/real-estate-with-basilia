@@ -462,8 +462,8 @@ ul {
 ═══════════════════════════════════════════ */
 .hero {
   position: relative;
-  height: 80vh;
-  min-height: 600px;
+  height: 90vh;
+  min-height: 650px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -480,7 +480,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
 }
 
 .hero-overlay {
