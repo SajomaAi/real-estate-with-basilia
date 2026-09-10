@@ -436,10 +436,18 @@ function addMessage(text, isUser = false) {
   const now = new Date();
   const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-  msg.innerHTML = `
-    <p class="msg-text">${text.replace(/\n/g, '<br>')}</p>
-    <span class="msg-time">${timeStr}</span>
-  `;
+  const msgText = document.createElement('p');
+  msgText.className = 'msg-text';
+  if (isUser) {
+    msgText.textContent = text;
+  } else {
+    msgText.innerHTML = text.replace(/\n/g, '<br>');
+  }
+  const msgTime = document.createElement('span');
+  msgTime.className = 'msg-time';
+  msgTime.textContent = timeStr;
+  msg.appendChild(msgText);
+  msg.appendChild(msgTime);
 
   messages.appendChild(msg);
   messages.scrollTop = messages.scrollHeight;
@@ -477,12 +485,12 @@ function showChatAppointmentForm() {
   const formMsg = document.createElement('div');
   formMsg.className = 'chat-msg bot chat-form-msg';
   formMsg.innerHTML = `
-    <form id="${formId}" class="chat-appt-form" novalidate>
+    <form id="${formId}" class="chat-appt-form">
       <div class="chat-form-field">
         <input type="text" name="name" placeholder="${isEs ? 'Su nombre completo' : 'Your full name'}" required />
       </div>
       <div class="chat-form-field">
-        <input type="tel" name="phone" placeholder="${isEs ? 'Su teléfono' : 'Your phone number'}" required />
+        <input type="tel" name="phone" inputmode="tel" placeholder="${isEs ? 'Su teléfono' : 'Your phone number'}" required />
       </div>
       <div class="chat-form-field">
         <input type="email" name="email" placeholder="${isEs ? 'Su correo electrónico' : 'Your email address'}" required />

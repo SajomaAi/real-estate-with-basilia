@@ -5,7 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Basilia Azcona — Luxury Real Estate Agent in Central New Jersey. Buying, Selling, Luxury Rentals & Investment Properties. Bilingual English/Spanish." />
   <meta name="keywords" content="real estate, New Jersey, Mercer County, luxury homes, Basilia Azcona, bilingual realtor" />
+  <meta name="author" content="Basilia Azcona" />
   <title>Basilia Azcona | Luxury Real Estate · Central New Jersey</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Basilia Azcona | Luxury Real Estate · Central New Jersey" />
+  <meta property="og:description" content="Basilia Azcona — Luxury Real Estate Agent in Central New Jersey. Buying, Selling, Luxury Rentals & Investment Properties. Bilingual English/Spanish." />
+  <meta property="og:url" content="https://realestatewithbasilia.com" />
+  <meta property="og:image" content="https://realestatewithbasilia.com/images/about-headshot-primary.jpg" />
+  <meta property="og:site_name" content="Real Estate with Basilia" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Basilia Azcona | Luxury Real Estate · Central New Jersey" />
+  <meta name="twitter:description" content="Luxury Real Estate Agent in Central New Jersey. 200+ Homes Sold. Bilingual English/Spanish." />
+  <meta name="twitter:image" content="https://realestatewithbasilia.com/images/about-headshot-primary.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="apple-touch-icon" href="images/about-headshot-primary.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://realestatewithbasilia.com" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Basilia Azcona",
+    "alternateName": "Real Estate with Basilia",
+    "url": "https://realestatewithbasilia.com",
+    "telephone": "+1-609-638-2850",
+    "email": "basilia@realestatewithbasilia.com",
+    "image": "https://realestatewithbasilia.com/images/about-headshot-primary.jpg",
+    "description": "Luxury Real Estate Agent in Central New Jersey specializing in home buying, selling, luxury rentals, and investment properties. Bilingual English/Spanish.",
+    "areaServed": {
+      "@type": "State",
+      "name": "New Jersey",
+      "containsPlace": [
+        { "@type": "City", "name": "Princeton" },
+        { "@type": "City", "name": "Hamilton" },
+        { "@type": "City", "name": "Trenton" },
+        { "@type": "City", "name": "Ewing" },
+        { "@type": "City", "name": "Hightstown" },
+        { "@type": "City", "name": "Robbinsville" }
+      ]
+    },
+    "knowsLanguage": ["en", "es"],
+    "sameAs": [
+      "https://www.instagram.com/realestatewithbasilia",
+      "https://www.facebook.com/realestatewithbasilia",
+      "https://www.tiktok.com/@realestatewithbasilia",
+      "https://www.linkedin.com/in/basiliaazcona"
+    ]
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -147,11 +205,11 @@
       <div class="about-grid">
         <div class="about-images">
           <div class="about-img-primary reveal-left">
-            <img src="images/about-headshot-primary.jpg" alt="Basilia Azcona — Real Estate Professional" />
+            <img src="images/about-headshot-primary.jpg" alt="Basilia Azcona — Real Estate Professional" loading="lazy" />
             <div class="img-accent-border"></div>
           </div>
           <div class="about-img-secondary reveal-left delay-1">
-            <img src="images/about-headshot-secondary.jpg" alt="Basilia Azcona — Licensed Real Estate Agent" />
+            <img src="images/about-headshot-secondary.jpg" alt="Basilia Azcona — Licensed Real Estate Agent" loading="lazy" />
             <div class="about-img-label">
               <span data-en="Licensed Agent" data-es="Agente Licenciada">Licensed Agent</span>
             </div>
@@ -276,7 +334,7 @@
   ═══════════════════════════════════════════ -->
   <section class="interlude">
     <div class="interlude-parallax" id="interludeParallax">
-      <img src="images/about-closing-3.jpg" alt="Basilia Azcona with clients at closing" class="interlude-bg" />
+      <img src="images/about-closing-3.jpg" alt="Basilia Azcona with clients at closing" class="interlude-bg" loading="lazy" />
       <div class="interlude-overlay"></div>
     </div>
     <div class="interlude-content">
@@ -445,7 +503,7 @@
             </div>
             <div class="form-group">
               <label for="phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+              <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="(555) 000-0000" />
             </div>
             <div class="form-group">
               <label for="service" data-en="I'm Interested In" data-es="Estoy Interesado/a En">I'm Interested In</label>
@@ -487,13 +545,33 @@
         <a href="#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
         <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
       </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/realestatewithbasilia" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/realestatewithbasilia" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/basiliaazcona" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@realestatewithbasilia" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@realestatewithbasilia" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
       <div class="footer-contact">
         <a href="https://wa.me/16096382850" target="_blank">609-638-2850</a>
         <span class="footer-sep">·</span>
         <a href="mailto:basilia@realestatewithbasilia.com">basilia@realestatewithbasilia.com</a>
       </div>
-      <p class="footer-copy" data-en="© 2025 Basilia Azcona. All rights reserved. Licensed Real Estate Professional · New Jersey." data-es="© 2025 Basilia Azcona. Todos los derechos reservados. Profesional Licenciada en Bienes Raíces · Nueva Jersey.">
-        © 2025 Basilia Azcona. All rights reserved. Licensed Real Estate Professional · New Jersey.
+      <p class="footer-compliance" data-en="Equal Housing Opportunity · Coldwell Banker Realty" data-es="Igualdad de Oportunidades en Vivienda · Coldwell Banker Realty">
+        Equal Housing Opportunity · Coldwell Banker Realty
+      </p>
+      <p class="footer-copy" data-en="© 2026 Basilia Azcona. All rights reserved. Licensed Real Estate Professional · New Jersey." data-es="© 2026 Basilia Azcona. Todos los derechos reservados. Profesional Licenciada en Bienes Raíces · Nueva Jersey.">
+        © 2026 Basilia Azcona. All rights reserved. Licensed Real Estate Professional · New Jersey.
       </p>
     </div>
   </footer>

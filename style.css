@@ -2072,3 +2072,52 @@ ul {
   color: var(--light-muted);
   line-height: 1.5;
 }
+
+/* ── Footer Social Links ────────────────────────────────── */
+.footer-social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.footer-social a {
+  color: var(--light-muted);
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--pink);
+}
+
+.footer-compliance {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--light-muted);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* ── Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .parallax-bg {
+    transform: none !important;
+  }
+
+  .cursor-glow {
+    display: none !important;
+  }
+}
