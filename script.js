@@ -327,6 +327,9 @@ function initContactForm() {
         form.reset();
         successMsg.classList.remove('hidden');
         setTimeout(() => successMsg.classList.add('hidden'), 6000);
+        if (typeof dataLayer !== 'undefined') {
+          dataLayer.push({ event: 'form_submit', form_name: 'contact', service: formData.get('service') || 'unspecified' });
+        }
       } else {
         throw new Error('Form submission failed');
       }
@@ -529,7 +532,6 @@ function showChatAppointmentForm() {
       });
 
       if (response.ok) {
-        // Replace form with success message
         formMsg.innerHTML = `
           <div class="chat-form-success">
             <span class="chat-form-check">✓</span>
@@ -540,6 +542,9 @@ function showChatAppointmentForm() {
           </div>
         `;
         messages.scrollTop = messages.scrollHeight;
+        if (typeof dataLayer !== 'undefined') {
+          dataLayer.push({ event: 'form_submit', form_name: 'chatbot_appointment' });
+        }
       } else {
         throw new Error('Submission failed');
       }
@@ -569,6 +574,9 @@ function handleChatInput(input) {
     removeTypingIndicator();
     const { text: responseText, intent } = getBotResponse(text);
     addMessage(responseText, false);
+    if (typeof dataLayer !== 'undefined') {
+      dataLayer.push({ event: 'chatbot_message', intent: intent });
+    }
 
     // If intent is contact or default, show the appointment form
     if (intent === 'contact' || intent === 'default') {
