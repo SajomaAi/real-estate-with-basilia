@@ -2358,6 +2358,11 @@ ul {
 
 .newsletter-content .section-label {
   color: var(--pink);
+  justify-content: center;
+}
+
+.newsletter-content .section-label::before {
+  display: none;
 }
 
 .newsletter-title {
