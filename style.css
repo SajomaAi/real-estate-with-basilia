@@ -2103,6 +2103,122 @@ ul {
   margin-bottom: 4px;
 }
 
+/* ── Newsletter Section ─────────────────────────────────── */
+.newsletter-section {
+  background: var(--black);
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.newsletter-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.newsletter-content .section-label {
+  color: var(--pink);
+}
+
+.newsletter-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 4vw, 32px);
+  color: var(--white);
+  margin: 12px 0 8px;
+  line-height: 1.2;
+}
+
+.newsletter-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--light-muted);
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.newsletter-input-group {
+  display: flex;
+  gap: 0;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.newsletter-input-group input[type="email"] {
+  flex: 1;
+  padding: 14px 18px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--white);
+  background: var(--charcoal);
+  border: 1px solid var(--charcoal);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.newsletter-input-group input[type="email"]:focus {
+  border-color: var(--pink);
+}
+
+.newsletter-input-group input[type="email"]::placeholder {
+  color: var(--muted);
+}
+
+.newsletter-btn {
+  padding: 14px 28px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--pink);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  background: var(--gold);
+}
+
+.newsletter-note {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  margin: 12px 0 0;
+}
+
+.newsletter-success {
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--pink);
+}
+
+@media (max-width: 640px) {
+  .newsletter-input-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .newsletter-input-group input[type="email"] {
+    border-right: 1px solid var(--charcoal);
+    border-radius: 4px;
+  }
+
+  .newsletter-btn {
+    border-radius: 4px;
+    padding: 14px;
+  }
+}
+
 /* ── Reduced Motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

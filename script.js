@@ -346,6 +346,51 @@ function initContactForm() {
 }
 
 /* ═══════════════════════════════════════════
+   NEWSLETTER FORM
+═══════════════════════════════════════════ */
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.newsletter-btn');
+    const successMsg = document.getElementById('newsletterSuccess');
+    const originalText = btn.textContent;
+    btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const formData = new FormData(this);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        this.reset();
+        successMsg.classList.remove('hidden');
+        setTimeout(() => successMsg.classList.add('hidden'), 6000);
+        if (typeof dataLayer !== 'undefined') {
+          dataLayer.push({ event: 'form_submit', form_name: 'newsletter' });
+        }
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = currentLang === 'es' ? 'Error. Intente de nuevo.' : 'Error. Try again.';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 3000);
+      return;
+    }
+
+    btn.textContent = originalText;
+    btn.disabled = false;
+  });
+}
+
+/* ═══════════════════════════════════════════
    CHATBOT — Self-contained Real Estate AI
    Floating fixed widget · Inline appt form
 ═══════════════════════════════════════════ */
@@ -501,6 +546,7 @@ function showChatAppointmentForm() {
       </div>
       <input type="hidden" name="_subject" value="Chat Appointment Request — realestatewithbasilia.com" />
       <input type="hidden" name="source" value="Chatbot Widget" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
       <button type="submit" class="chat-form-submit">
         ${isEs ? 'Enviar Solicitud' : 'Send Request'}
       </button>

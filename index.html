@@ -29,8 +29,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#080808" />
 
-  <!-- Canonical -->
+  <!-- Canonical + Hreflang -->
   <link rel="canonical" href="https://realestatewithbasilia.com" />
+  <link rel="alternate" hreflang="en" href="https://realestatewithbasilia.com" />
+  <link rel="alternate" hreflang="es" href="https://realestatewithbasilia.com" />
+  <link rel="alternate" hreflang="x-default" href="https://realestatewithbasilia.com" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -466,6 +469,31 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       NEWSLETTER SIGNUP
+  ═══════════════════════════════════════════ -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <div class="newsletter-content">
+        <span class="section-label" data-en="Stay Informed" data-es="Mantente Informado">Stay Informed</span>
+        <h2 class="newsletter-title" data-en="Get Central NJ Market Updates" data-es="Reciba Actualizaciones del Mercado de NJ">Get Central NJ Market Updates</h2>
+        <p class="newsletter-desc" data-en="New listings, price changes, and market insights delivered to your inbox. Join 400+ homeowners and investors in Central New Jersey." data-es="Nuevos listados, cambios de precio y perspectivas del mercado directamente a su correo. Únase a más de 400 propietarios e inversores en el Centro de Nueva Jersey.">New listings, price changes, and market insights delivered to your inbox. Join 400+ homeowners and investors in Central New Jersey.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <div class="newsletter-input-group">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="Newsletter Signup — realestatewithbasilia.com" />
+          <button type="submit" class="newsletter-btn" data-en="Subscribe" data-es="Suscribirse">Subscribe</button>
+        </div>
+        <p class="newsletter-note" data-en="Free. Unsubscribe anytime. No spam." data-es="Gratis. Cancele cuando quiera. Sin spam.">Free. Unsubscribe anytime. No spam.</p>
+        <div id="newsletterSuccess" class="newsletter-success hidden">
+          <span data-en="✓ You're in! Watch for your first update." data-es="✓ ¡Listo! Espere su primera actualización.">✓ You're in! Watch for your first update.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        CONTACT SECTION
   ═══════════════════════════════════════════ -->
   <section id="contact" class="contact section-padding">
@@ -543,6 +571,7 @@
               <textarea id="message" name="message" rows="4" placeholder="Tell me about your real estate goals..." data-placeholder-en="Tell me about your real estate goals..." data-placeholder-es="Cuénteme sobre sus metas en bienes raíces..."></textarea>
             </div>
             <input type="hidden" name="_subject" value="New Inquiry from realestatewithbasilia.com" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <button type="submit" class="btn-primary btn-full" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
             <div id="formSuccess" class="form-success hidden">
               <span data-en="✓ Message sent! I'll be in touch within 24 hours." data-es="✓ ¡Mensaje enviado! Me comunicaré en 24 horas.">✓ Message sent! I'll be in touch within 24 hours.</span>
