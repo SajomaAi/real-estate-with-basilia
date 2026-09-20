@@ -204,21 +204,19 @@ function initTestimonialsSlider() {
     }
   }, { passive: true });
 
-  let autoSlide = setInterval(() => {
+  function startAutoSlide() {
     slidesVisible = window.innerWidth > 900 ? 3 : 1;
     maxSlide = totalSlides - slidesVisible;
     if (currentSlide >= maxSlide) goToSlide(0);
     else goToSlide(currentSlide + 1);
-  }, 5000);
+  }
+
+  let autoSlide = setInterval(startAutoSlide, 5000);
 
   track.addEventListener('mouseenter', () => clearInterval(autoSlide));
   track.addEventListener('mouseleave', () => {
-    autoSlide = setInterval(() => {
-      slidesVisible = window.innerWidth > 900 ? 3 : 1;
-      maxSlide = totalSlides - slidesVisible;
-      if (currentSlide >= maxSlide) goToSlide(0);
-      else goToSlide(currentSlide + 1);
-    }, 5000);
+    clearInterval(autoSlide);
+    autoSlide = setInterval(startAutoSlide, 5000);
   });
 
   createDots();
@@ -722,12 +720,14 @@ function initCursorGlow() {
 ═══════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    const target = document.querySelector(href);
     if (target) {
+      e.preventDefault();
       const navHeight = document.getElementById('navbar').offsetHeight;
       const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      history.pushState(null, '', href);
     }
   });
 });

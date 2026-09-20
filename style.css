@@ -1179,10 +1179,12 @@ ul {
 }
 
 .slider-dot {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
+  padding: 8px;
   border-radius: 50%;
   background: var(--charcoal);
+  background-clip: content-box;
   border: none;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
@@ -1190,7 +1192,8 @@ ul {
 
 .slider-dot.active {
   background: var(--pink);
-  transform: scale(1.3);
+  background-clip: content-box;
+  transform: scale(1.2);
 }
 
 /* ═══════════════════════════════════════════

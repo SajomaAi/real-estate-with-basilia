@@ -26,7 +26,8 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-  <link rel="apple-touch-icon" href="images/about-headshot-primary.jpg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <meta name="theme-color" content="#080808" />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://realestatewithbasilia.com" />
@@ -115,7 +116,7 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">✕</button>
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
     <ul>
       <li><a href="#about" class="mobile-link" data-en="About" data-es="Sobre Mí">About</a></li>
       <li><a href="#services" class="mobile-link" data-en="Services" data-es="Servicios">Services</a></li>
@@ -134,7 +135,12 @@
   ═══════════════════════════════════════════ -->
   <section id="hero" class="hero">
     <div class="hero-parallax" id="heroParallax">
-      <img src="images/closing-collage-bw.jpg?v=1" alt="Basilia Azcona — Closing Moments" class="hero-bg-img" />
+      <picture>
+        <source srcset="images/closing-collage-bw-mobile.webp" media="(max-width: 640px)" type="image/webp" />
+        <source srcset="images/closing-collage-bw-mobile.jpg" media="(max-width: 640px)" type="image/jpeg" />
+        <source srcset="images/closing-collage-bw.webp" type="image/webp" />
+        <img src="images/closing-collage-bw.jpg?v=2" alt="Basilia Azcona — Closing Moments" class="hero-bg-img" fetchpriority="high" />
+      </picture>
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -468,7 +474,7 @@
             Whether you're buying, selling, or investing — your next chapter begins with a conversation. Reach out today and let's make it happen.
           </p>
           <div class="contact-details reveal-up delay-3">
-            <a href="https://wa.me/16096382850" target="_blank" class="contact-item">
+            <a href="https://wa.me/16096382850" target="_blank" rel="noopener" class="contact-item">
               <span class="contact-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" stroke="currentColor" stroke-width="1.5"/></svg>
               </span>
@@ -494,7 +500,7 @@
             </a>
           </div>
           <div class="contact-headshot reveal-up delay-4">
-            <img src="images/headshot1.jpg" alt="Basilia Azcona" />
+            <img src="images/headshot1.jpg" alt="Basilia Azcona" loading="lazy" />
             <div class="headshot-caption">
               <span class="headshot-name">Basilia Azcona</span>
               <span class="headshot-title" data-en="Licensed Real Estate Professional" data-es="Profesional Licenciada en Bienes Raíces">Licensed Real Estate Professional</span>
@@ -573,7 +579,7 @@
         </a>
       </div>
       <div class="footer-contact">
-        <a href="https://wa.me/16096382850" target="_blank">609-638-2850</a>
+        <a href="https://wa.me/16096382850" target="_blank" rel="noopener">609-638-2850</a>
         <span class="footer-sep">·</span>
         <a href="mailto:basilia@realestatewithbasilia.com">basilia@realestatewithbasilia.com</a>
       </div>
@@ -598,7 +604,7 @@
     <div class="chatbot-window hidden" id="chatbotWindow">
       <div class="chatbot-header">
         <div class="chatbot-avatar">
-          <img src="images/headshot1.jpg" alt="Basilia" />
+          <img src="images/headshot1.jpg" alt="Basilia" loading="lazy" />
         </div>
         <div class="chatbot-header-info">
           <span class="chatbot-name">Basilia Azcona</span>
