@@ -18,6 +18,9 @@
   --white:        #f8f4f0;
   --off-white:    #ede8e3;
 
+  /* Accent gold */
+  --gold:         #c9a96e;
+
   /* Signature pink palette */
   --pink:         #e8a4b8;
   --pink-light:   #f0c4d4;
@@ -2125,7 +2128,7 @@ ul {
 
 .listing-card {
   background: var(--charcoal);
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   transition: transform 0.3s;
 }
@@ -2181,7 +2184,7 @@ ul {
 }
 
 .listing-price {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 24px;
   font-weight: 500;
   color: var(--white);
@@ -2212,7 +2215,7 @@ ul {
 
 .listing-sep {
   margin: 0 6px;
-  color: var(--charcoal);
+  color: var(--muted);
 }
 
 .listing-cta {
@@ -2265,7 +2268,7 @@ ul {
 
 /* ── Blog / Insights ───────────────────────────────────── */
 .blog {
-  background: var(--bg);
+  background: var(--dark);
 }
 
 .blog-grid {
@@ -2276,9 +2279,9 @@ ul {
 }
 
 .blog-card {
-  background: var(--white);
-  border: 1px solid var(--light-muted);
-  border-radius: 6px;
+  background: var(--dark-3);
+  border: 1px solid var(--dark-5);
+  border-radius: 0;
   padding: 28px 24px;
   transition: transform 0.3s, border-color 0.3s;
 }
@@ -2296,17 +2299,17 @@ ul {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--pink);
-  background: rgba(193, 137, 111, 0.1);
+  background: var(--pink-glow);
   padding: 4px 10px;
   border-radius: 3px;
   margin-bottom: 14px;
 }
 
 .blog-title {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 500;
-  color: var(--dark);
+  color: var(--white);
   line-height: 1.35;
   margin: 0 0 10px;
 }
@@ -2358,7 +2361,7 @@ ul {
 }
 
 .newsletter-title {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(24px, 4vw, 32px);
   color: var(--white);
