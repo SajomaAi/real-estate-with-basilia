@@ -13,7 +13,6 @@ let currentLang = 'en';
 let chatLang = 'en';
 let currentSlide = 0;
 const totalSlides = 5;
-const visibleSlides = window.innerWidth > 900 ? 3 : 1;
 
 /* ── DOM READY ──────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -795,7 +794,7 @@ document.querySelectorAll('.service-link').forEach(link => {
 /* ═══════════════════════════════════════════
    COUNTER ANIMATION for stats
 ═══════════════════════════════════════════ */
-function animateCounter(el, target, suffix = '') {
+function animateCounter(el, target, prefix = '', suffix = '') {
   let current = 0;
   const duration = 2000;
   const step = target / (duration / 16);
@@ -806,23 +805,55 @@ function animateCounter(el, target, suffix = '') {
       current = target;
       clearInterval(timer);
     }
-    el.textContent = Math.floor(current) + suffix;
+    el.textContent = prefix + Math.floor(current) + suffix;
   }, 16);
 }
 
 const statsSection = document.querySelector('.hero-stats');
 if (statsSection) {
-  const statNumbers = statsSection.querySelectorAll('.stat-number');
   let animated = false;
 
   const statsObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !animated) {
       animated = true;
+      const statNumbers = statsSection.querySelectorAll('.stat-number');
+      statNumbers.forEach((el) => {
+        const text = el.textContent.trim();
+        if (text.startsWith('$')) {
+          animateCounter(el, 20, '$', 'M+');
+        } else {
+          const num = parseInt(text);
+          if (num >= 200) animateCounter(el, 200, '', '+');
+          else if (num >= 10) animateCounter(el, 10, '', '+');
+        }
+      });
     }
   });
 
   statsObserver.observe(statsSection);
 }
+
+/* ═══════════════════════════════════════════
+   ESCAPE KEY — close overlays
+═══════════════════════════════════════════ */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu && mobileMenu.classList.contains('active')) {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+      return;
+    }
+
+    const chatWindow = document.getElementById('chatbotWindow');
+    const chatToggle = document.getElementById('chatbotToggle');
+    if (chatWindow && !chatWindow.classList.contains('hidden')) {
+      chatWindow.classList.add('hidden');
+      chatToggle.querySelector('.chat-icon-open').classList.remove('hidden');
+      chatToggle.querySelector('.chat-icon-close').classList.add('hidden');
+    }
+  }
+});
 
 /* ═══════════════════════════════════════════
    INITIAL LANGUAGE SETUP
