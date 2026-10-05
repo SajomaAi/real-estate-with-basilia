@@ -528,27 +528,6 @@ ul {
   padding: 0 40px 120px;
 }
 
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--pink-light);
-  margin-bottom: 24px;
-}
-
-.eyebrow-line {
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: var(--pink);
-  opacity: 0.6;
-}
-
 .hero-title {
   font-family: var(--font-serif);
   font-size: clamp(64px, 10vw, 130px);
@@ -2523,7 +2502,8 @@ ul {
     animation: none !important;
   }
 
-  .parallax-bg {
+  .hero-parallax,
+  .interlude-parallax {
     transform: none !important;
   }
 

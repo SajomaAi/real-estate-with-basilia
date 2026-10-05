@@ -839,18 +839,14 @@ if (statsSection) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenu && mobileMenu.classList.contains('active')) {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
+    if (mobileMenu && mobileMenu.classList.contains('open')) {
+      document.getElementById('mobileClose').click();
       return;
     }
 
     const chatWindow = document.getElementById('chatbotWindow');
-    const chatToggle = document.getElementById('chatbotToggle');
     if (chatWindow && !chatWindow.classList.contains('hidden')) {
-      chatWindow.classList.add('hidden');
-      chatToggle.querySelector('.chat-icon-open').classList.remove('hidden');
-      chatToggle.querySelector('.chat-icon-close').classList.add('hidden');
+      document.getElementById('chatbotToggle').click();
     }
   }
 });
